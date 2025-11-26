@@ -1,4 +1,4 @@
-# 🌟 Gerencia+ — Sistema de Gestão de Estoque para Pequenos Negócios
+# 📊 Gerencia+ — Sistema de Gestão de Estoque para Pequenos Negócios
 ### 📝 Projeto acadêmico — Engenharia de Software
 ### 🔄 Metodologia utilizada: SCRUM
 ---
