@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerencia+ — Produtos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../styles/produtos.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- ===========================================================
+       SIDEBAR (A MESMA DO DASHBOARD)
+  =========================================================== -->
+  <aside class="sidebar">
+      <h2 class="logo">GERENCIA+</h2>
+
+      <nav>
+        <a href="dashboard.html"><i class="bi bi-speedometer2 nav-icon"></i>Dashboard</a>
+        <a href="produtos.html" class="active"><i class="bi bi-box-seam nav-icon"></i>Produtos</a>
+        <a href="#"><i class="bi bi-bar-chart nav-icon"></i>Relatórios</a>
+        <a href="#"><i class="bi bi-people nav-icon"></i>Funcionários</a>
+        <a href="#"><i class="bi bi-headset nav-icon"></i>Fornecedores</a>
+        <a href="#"><i class="bi bi-gear nav-icon"></i>Configurações</a>
+      </nav>
+  </aside>
+
+
+  <!-- ===========================================================
+       ÁREA PRINCIPAL (HEADER + CONTEÚDO)
+  =========================================================== -->
+  <main class="main">
+
+      <!-- HEADER -->
+      <header class="header">
+        <h3>Gerenciador de Estoques</h3>
+
+        <div class="header-right">
+          <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Pesquisar...">
+          </div>
+
+          <img src="https://i.pravatar.cc/40" class="user" alt="">
+        </div>
+      </header>
+
+
+      <!-- ===========================================================
+           CONTEÚDO DA PÁGINA DE PRODUTOS
+      =========================================================== -->
+      
+    <section class="content produtos-page">
+
+            <div class="produtos-header">
+                <h2>Produtos</h2>
+
+                <button class="btn-add-produto" onclick="abrirModal()">
+                    <i class="bi bi-plus-lg"></i>
+                    Novo produto
+                </button>
+
+            </div>
+
+            <div class="produtos-grid">
+
+                <!-- 1 -->
+                <div class="produto-card">
+                    <img src="https://fortatacadista.vteximg.com.br/arquivos/ids/290684-800-800/332852-urbano-branco-5kg.png?v=637490803953600000" alt="">
+                    <h3>Arroz Branco 5kg</h3>
+                    <p>Arroz tipo 1 • Embalagem econômica</p>
+                    <span class="qtd qtd-alta">Estoque: 42</span>
+                </div>
+
+                <!-- 2 -->
+                <div class="produto-card">
+                    <img src="https://redemix.vteximg.com.br/arquivos/ids/209460-1000-1000/7897136400155.jpg?v=638350604534800000" alt="">
+                    <h3>Feijão Carioca 1kg</h3>
+                    <p>Grãos selecionados • Tipo 1</p>
+                    <span class="qtd qtd-medio">Estoque: 31</span>
+                </div>
+
+                <!-- 3 -->
+                <div class="produto-card">
+                    <img src="https://carrefourbrfood.vtexassets.com/arquivos/ids/211616/141836_1.jpg?v=637272514200130000" alt="">
+                    <h3>Óleo de Soja 900ml</h3>
+                    <p>Óleo vegetal refinado</p>
+                    <span class="qtd qtd-alta">Estoque: 58</span>
+                </div>
+
+                <!-- 4 -->
+                <div class="produto-card">
+                    <img src="https://d3gdr9n5lqb5z7.cloudfront.net/fotos/907950.jpg" alt="">
+                    <h3>Açúcar Cristal 1kg</h3>
+                    <p>Açúcar cristal de alta pureza</p>
+                    <span class="qtd qtd-medio">Estoque: 25</span>
+                </div>
+
+                <!-- 5 -->
+                <div class="produto-card">
+                    <img src="https://carrefourbrfood.vtexassets.com/arquivos/ids/201945/9685855_2.jpg?v=637272449661630000" alt="">
+                    <h3>Café 500g</h3>
+                    <p>Sabor intenso • Torrado e moído</p>
+                    <span class="qtd qtd-medio">Estoque: 18</span>
+                </div>
+
+                <!-- 6 -->
+                <div class="produto-card">
+                    <img src="https://d3gdr9n5lqb5z7.cloudfront.net/fotos/1919.jpg" alt="">
+                    <h3>Leite Integral 1L</h3>
+                    <p>Leite UHT integral</p>
+                    <span class="qtd qtd-alta">Estoque: 67</span>
+                </div>
+
+                <!-- 7 -->
+                <div class="produto-card">
+                    <img src="https://images.tcdn.com.br/img/img_prod/767437/sabao_em_po_omo_pacote_1kg_1017_1_20200408102937.jpg" alt="">
+                    <h3>Sabão em Pó 1kg</h3>
+                    <p>Remove manchas profundas</p>
+                    <span class="qtd qtd-medio">Estoque: 14</span>
+                </div>
+
+                <!-- 8 -->
+                <div class="produto-card">
+                    <img src="https://castronaves.vteximg.com.br/arquivos/ids/371251-1000-1000/84574_01.jpg?v=637655863428400000" alt="">
+                    <h3>Detergente 500ml</h3>
+                    <p>Detergente neutro</p>
+                    <span class="qtd qtd-alta">Estoque: 39</span>
+                </div>
+
+                <!-- 9 -->
+                <div class="produto-card">
+                    <img src="https://www.drogaraia.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F17099146.webp&w=3840&q=40" alt="">
+                    <h3>Shampoo Anticaspa 400ml</h3>
+                    <p>Uso diário • Ação refrescante</p>
+                    <span class="qtd qtd-medio">Estoque: 22</span>
+                </div>
+
+                <!-- 10 -->
+                <div class="produto-card">
+                    <img src="https://drogariaspacheco.vteximg.com.br/arquivos/ids/1476510-1000-1000/717509---Fralda-Huggies-Tripla-Protecao-G-36-Unidades-1.jpg?v=638926864896830000" alt="">
+                    <h3>Fraldas G</h3>
+                    <p>Alta absorção • Pacote G</p>
+                    <span class="qtd qtd-baixa">Estoque: 16</span>
+                </div>
+
+                <!-- 11 -->
+                <div class="produto-card">
+                    <img src="https://andinacocacola.vtexassets.com/arquivos/ids/157657/110301_COCA---CCO1.5L.jpg?v=638404085825130000" alt="">
+                    <h3>Refrigerante Cola 2L</h3>
+                    <p>Bebida gaseificada</p>
+                    <span class="qtd qtd-alta">Estoque: 40</span>
+                </div>
+
+                <!-- 12 -->
+                <div class="produto-card">
+                    <img src="https://ibassets.com.br/ib.item.image.large/l-0dc5b9a8f98a48f8bb075014076b37f2.jpg" alt="">
+                    <h3>Biscoito Cream Cracker</h3>
+                    <p>Biscoito salgado tradicional</p>
+                    <span class="qtd qtd-medio">Estoque: 28</span>
+                </div>
+
+            </div>
+
+    </section>
+
+
+      <!-- FOOTER -->
+    <footer class="footer">
+        Gerencia+ -Sistema de Gestão de Estoques &copy; 2025
+    </footer>
+
+  </main>
+</div>
+
+    <!-- ================== MODAL CADASTRAR PRODUTO ================== -->
+<div class="modal-overlay" id="modalAddProduto">
+    <div class="modal">
+
+        <div class="modal-header">
+            <h3>Cadastrar Produto</h3>
+            <button class="close-modal" onclick="fecharModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <form class="modal-form">
+
+            <label>Nome do produto</label>
+            <input type="text" placeholder="Ex: Arroz Branco 5kg">
+
+            <label>Descrição</label>
+            <textarea placeholder="Descrição curta..."></textarea>
+
+            <label>Quantidade em estoque</label>
+            <input type="number" placeholder="Ex: 12">
+
+            <label>Imagem (URL)</label>
+            <input type="text" placeholder="Cole o link da imagem...">
+
+            <button type="submit" class="btn-save">
+                <i class="bi bi-check-lg"></i>
+                Salvar produto
+            </button>
+        </form>
+
+    </div> 
+</div>
+
+    <script>
+        function abrirModal() {
+            document.getElementById("modalAddProduto").style.display = "flex";
+        }
+
+        function fecharModal() {
+            document.getElementById("modalAddProduto").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
