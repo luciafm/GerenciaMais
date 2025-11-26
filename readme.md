@@ -1,12 +1,11 @@
 # 🌟 Gerencia+ — Sistema de Gestão de Estoque para Pequenos Negócios
 ### 📝 Projeto acadêmico — Engenharia de Software
-🔄 Metodologia utilizada: SCRUM
+### 🔄 Metodologia utilizada: SCRUM
 ---
 
 ## 📘 Sobre o Projeto
 * O Gerencia+ é um sistema web desenvolvido como atividade prática da disciplina de Engenharia de Software, com o objetivo de aplicar os princípios do SCRUM em um projeto real.
 * A plataforma foi pensada para auxiliar pequenos comércios na organização de seu estoque, trazendo uma interface simples, moderna e eficiente.
-
 ---
 
 ## 📆 Sprints — Aplicação da Metodologia SCRUM
@@ -31,5 +30,5 @@
 |------------|:------------:|
 | **HTML5**  | Estrutura do site|
 | **CSS3**   | Estilização e design|
-| **Trello** | Kanban |
-| **Git & GitHub** | Versionamento e deploy |
+| **Trello** | Kanban|
+| **Git & GitHub** | Versionamento e deploy|
