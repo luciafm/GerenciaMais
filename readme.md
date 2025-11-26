@@ -22,7 +22,8 @@
 * Tela Inicial / Landing Page ✔
 * Tela Criar Conta
 * Tela de Login
-* Tela de Dashboard (versão inicial)
+* Tela de Dashboard ✔
+* Tela de Produtos ✔
 
 ## 🛠 Tecnologias utilizadas
 
