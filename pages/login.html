@@ -38,7 +38,14 @@
         <a href="#">Esqueci a senha</a>
       </div>
 
-      <button type="submit">Entrar</button>
+      <button id="btnEntrar" type="submit">Entrar</button>
+
+      <script>
+    document.getElementById("btnEntrar").addEventListener("click", function (event) {
+      event.preventDefault(); // impede comportamento padrão, se estiver dentro de um <form>
+      window.location.href = "dashboard.html"; // ajuste o caminho se estiver em pasta
+    });
+  </script>
       
       <p class="ou">OU</p>
 
