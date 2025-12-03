@@ -243,6 +243,29 @@ html, body {
   gap: 22px;
 }
 
+.btn-editar {
+  margin-top: 12px;
+  width: 100%;
+  background: var(--green-primary);
+  color: white;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-editar:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+
 /* ===========================================================
    CARD DO PRODUTO
 =========================================================== */
