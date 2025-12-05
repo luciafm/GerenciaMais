@@ -84,6 +84,10 @@
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
                     </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
                 </div>
 
                 <!-- 2 -->
@@ -102,6 +106,10 @@
 
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
+                    </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
                     </button>
                 </div>
 
@@ -122,6 +130,10 @@
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
                     </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
                 </div>
 
                 <!-- 4 -->
@@ -140,6 +152,10 @@
 
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
+                    </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
                     </button>
                 </div>
 
@@ -160,6 +176,10 @@
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
                     </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
                 </div>
 
                 <!-- 6 -->
@@ -178,6 +198,10 @@
 
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
+                    </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
                     </button>
                 </div>
 
@@ -198,6 +222,10 @@
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
                     </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
                 </div>
 
                 <!-- 8 -->
@@ -216,6 +244,10 @@
 
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
+                    </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
                     </button>
                 </div>
 
@@ -236,6 +268,10 @@
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
                     </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
                 </div>
 
                 <!-- 10 -->
@@ -254,6 +290,10 @@
 
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
+                    </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
                     </button>
                 </div>
 
@@ -274,6 +314,10 @@
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
                     </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
                 </div>
 
                 <!-- 12 -->
@@ -292,6 +336,10 @@
 
                     <button class="btn-editar" onclick="abrirEdicao(this)">
                         <i class="bi bi-pencil-square"></i> Editar
+                    </button>
+
+                    <button class="btn-excluir" onclick="confirmarExclusao(this)">
+                        <i class="bi bi-trash"></i> Excluir
                     </button>
                 </div>
 
@@ -348,10 +396,32 @@
     </div>
 </div>
 
+<!-- ================== MODAL CONFIRMAR EXCLUSÃO DE PRODUTO ================== -->
+<div class="modal-overlay" id="modal-excluir">
+    <div class="modal">
+
+        <div class="modal-header">
+            <h3>Confirmar exclusão</h3>
+            <button class="close-modal" onclick="cancelarExclusao()">
+                <i class="bi bi-x-lg"></i>    
+            </button>
+        </div>
+
+
+        <p>Tem certeza que deseja excluir este produto?</p>
+
+        <div class="modal-botoes">
+            <button onclick="cancelarExclusao()">Cancelar</button>
+            <button onclick="confirmarExclusaoFinal()">Excluir</button>
+        </div>
+    </div>
+</div>
+
 
     <script>
-
 let cardEmEdicao = null;
+let produtoParaExcluir = null;
+
 
 // ABRIR MODAL DE EDIÇÃO
 function abrirEdicao(botao) {
@@ -396,8 +466,28 @@ function salvarEdicao() {
     fecharModalEditar();
 }
 
-</script>
 
+/* ============== EXCLUIR PRODUTO ==================*/
+function confirmarExclusao(botao) {
+    produtoParaExcluir = botao.closest(".produto-card");
+    document.getElementById("modal-excluir").style.display = "flex";
+}
+
+function cancelarExclusao() {
+    document.getElementById("modal-excluir").style.display = "none";
+    produtoParaExcluir = null;
+}
+
+function confirmarExclusaoFinal() {
+    if (produtoParaExcluir) {
+        produtoParaExcluir.remove();
+    };
+
+    document.getElementById("modal-excluir").style.display = "none";
+    produtoParaExcluir = null;
+}
+
+    </script>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 :root {
   --green-primary: #1b7f4e;
   --green-dark: #16693f;
+  --red-primary: #d32f2f;
+  --red-dark: #b71c1c;
   --bg-light: #f7f9f8;
   --white: #ffffff;
   --border: #e4e4e4;
@@ -265,6 +267,32 @@ html, body {
   transform: translateY(-2px);
 }
 
+.btn-excluir {
+  margin-top: 8px;
+  width: 100%;
+  background: var(--red-primary);
+  color: white;
+
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 14px;
+
+  border: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  transition: 0.2s ease;
+}
+
+.btn-excluir:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
 
 /* ===========================================================
    CARD DO PRODUTO
@@ -485,4 +513,57 @@ html, body {
     width: 100%;
     justify-content: center;
   }
+}
+
+
+/* ================================
+   MODAL EXCLUIR - AJUSTE VISUAL
+================================ */
+
+#modal-excluir .modal {
+  width: 350px;
+  text-align: center;
+}
+
+#modal-excluir p {
+  font-size: 15px;
+  color: #444;
+  margin-top: 10px;
+}
+
+/* BOTÕES */
+#modal-excluir .modal-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#modal-excluir .modal-botoes button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* BOTÃO CANCELAR */
+#modal-excluir .modal-botoes button:first-child {
+  background: #ccc;
+  color: #333;
+}
+
+#modal-excluir .modal-botoes button:first-child:hover {
+  background: #b5b5b5;
+}
+
+#modal-excluir .modal-botoes button:last-child {
+  background: var(--red-primary);
+  color: white;
+}
+
+#modal-excluir .modal-botoes button:last-child:hover {
+  background: var(--red-dark);
+  transform: scale(1.05);
 }
