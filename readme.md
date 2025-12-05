@@ -20,8 +20,8 @@
 ### Sprint 02 — Desenvolvimento das Interfaces
 
 * Tela Inicial / Landing Page ✔
-* Tela Criar Conta
-* Tela de Login
+* Tela Criar Conta ✔
+* Tela de Login ✔
 * Tela de Dashboard ✔
 * Tela de Produtos ✔
 
