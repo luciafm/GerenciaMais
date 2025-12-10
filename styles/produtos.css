@@ -239,6 +239,52 @@ html, body {
    GRID DOS PRODUTOS
 =========================================================== */
 
+/* ================================
+   FILTRO DE CATEGORIA
+================================ */
+.filtro-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filtro-select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  font-size: 15px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.filtro-select:focus {
+  border-color: var(--green-primary);
+  box-shadow: 0 0 0 2px rgba(27,127,78,0.2);
+}
+
+.btn-limpar {
+  background: #d9534f;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.btn-limpar:hover {
+  background: #b94440;
+  transform: translateY(-2px);
+}
+
+.msg-nenhum {
+  font-size: 15px;
+  color: #777;
+  margin-top: 10px;
+}
+
 .produtos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));

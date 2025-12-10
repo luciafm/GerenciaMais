@@ -65,6 +65,30 @@
 
             </div>
 
+            <div class="filtro-container">
+
+                <select id="filtroCategoria" class="filtro-select" onchange="filtrarCategoria()">
+                    <option value="">Filtrar por categoria</option>
+                    <option value="Mercearia">Mercearia</option>
+                    <option value="Laticínios">Laticínios</option>
+                    <option value="Limpeza">Limpeza</option>
+                    <option value="Higiene">Higiene</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="msg-nenhum">Congelados</option>
+                </select>
+
+                <button class="btn-limpar" onclick="limparFiltro()">
+                    Limpar filtro
+                </button>
+
+            </div>
+
+            <p id="msgNenhum" class="msg-nenhum" style="display:none;">
+                Nenhum produto encontrado nessa categoria.
+            </p>
+
+
             <div class="produtos-grid">
 
                 <!-- 1 -->
@@ -527,6 +551,32 @@ function confirmarExclusaoFinal() {
     document.getElementById("modal-excluir").style.display = "none";
     produtoParaExcluir = null;
 }
+
+// FILTRAR POR CATEGORIA
+    function filtrarCategoria() {
+        const categoriaSelecionada = document.getElementById("filtroCategoria").value;
+        const produtos = document.querySelectorAll(".produto-card");
+        let encontrou = false;
+
+        produtos.forEach(card => {
+            const categoria = card.dataset.cat;
+
+            if (categoriaSelecionada === "" || categoria === categoriaSelecionada) {
+                card.style.display = "block";
+                encontrou = true;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        document.getElementById("msgNenhum").style.display =
+            encontrou ? "none" : "block";
+    }
+
+    function limparFiltro() {
+        document.getElementById("filtroCategoria").value = "";
+        filtrarCategoria(); // mostra todos de novo
+    }
 
     </script>
 
