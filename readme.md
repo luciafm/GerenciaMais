@@ -25,6 +25,21 @@
 * Tela de Dashboard ✔
 * Tela de Produtos ✔
 
+### Sprint 03 — Desenvolvimento de funções 
+
+* Implementar função para editar informações do produto ✔
+* Implementar função para excluir produto ✔
+* Alerta de produto acabando no dashboard ✔
+* Desenvolver fluxos de navegação ✔
+
+### Sprint 04 — Finalizando o sistema
+
+* Implementar filtro de categoria ✔
+* Criar tela de relatórios ✔
+* Implementar função de gerar relatórios ✔
+* Desenvolver fluxos de navegação ✔
+
+
 ## 🛠 Tecnologias utilizadas
 
 | Tecnologia | Finalidade |
@@ -33,3 +48,11 @@
 | **CSS3**   | Estilização e design|
 | **Trello** | Kanban|
 | **Git & GitHub** | Versionamento e deploy|
+
+## 💻 Responsáveis pelo Desenvolvimento
+
+* Álvaro Rodrigues
+* Lucia Martins
+* Kamila
+* Mylena 
+* Vitória Barbosa
