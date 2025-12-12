@@ -1,0 +1,202 @@
+/* ======================================================
+   ESTILOS ESPECÍFICOS - RELATÓRIOS
+   (Complementa dashboard.css)
+====================================================== */
+
+/* --- CABEÇALHO DA PÁGINA --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header h2 {
+    font-size: 26px;
+    color: var(--green-dark); /* Reutilizando variável */
+    margin: 0;
+}
+
+/* Botão de Imprimir (Estilo Clean) */
+.btn-print {
+    background: white;
+    border: 1px solid var(--green-primary);
+    color: var(--green-primary);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-print:hover {
+    background: var(--green-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(27, 127, 78, 0.2);
+}
+
+/* --- BARRA DE FILTROS --- */
+.filter-bar {
+    display: flex;
+    align-items: flex-end; /* Alinha inputs e botão pela base */
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.filter-item label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #666;
+}
+
+/* Inputs bonitos e consistentes */
+.filter-item input,
+.filter-item select {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #444;
+    background: #f9f9f9;
+    outline: none;
+    transition: 0.2s;
+    width: 100%; /* Ocupa largura do pai */
+    box-sizing: border-box; /* Garante que padding não estoure largura */
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+    background: white;
+    border-color: var(--green-primary);
+    box-shadow: 0 0 0 3px rgba(27, 127, 78, 0.1);
+}
+
+/* Wrapper para ícone no select (opcional, visual premium) */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--green-primary);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.select-wrapper select {
+    padding-left: 38px; /* Espaço para o ícone */
+}
+
+/* Botão Filtrar */
+.btn-filtrar {
+    background: var(--green-primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    height: 44px; /* Mesma altura visual dos inputs */
+}
+
+.btn-filtrar:hover {
+    background: var(--green-dark);
+    box-shadow: 0 4px 12px rgba(27, 127, 78, 0.25);
+}
+
+/* --- TABELA E CONTEÚDO --- */
+.card-header-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header-table h4 {
+    margin: 0;
+    color: var(--green-dark);
+    font-size: 18px;
+}
+
+.badge-count {
+    background: #f0f0f0;
+    color: #666;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Ajustes na Tabela (Herdando do dashboard, mas refinando) */
+.mov-table th {
+    background-color: #fcfcfc; /* Cabeçalho mais leve */
+    color: var(--green-primary);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.mov-table td {
+    vertical-align: middle;
+}
+
+/* Badges de Status na Tabela */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+.status-entrada { background: #e8f5e9; color: #1b5e20; }
+.status-saida { background: #ffebee; color: #c62828; }
+
+/* Estado Vazio */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    display: none; /* Controlado via JS */
+}
+
+.empty-state i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.5;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-filtrar {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

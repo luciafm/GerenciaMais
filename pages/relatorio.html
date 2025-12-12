@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerencia+ — Relatórios</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/relatorios.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+      <h2 class="logo">GERENCIA+</h2>
+      <nav>
+        <a href="dashboard.html"><i class="bi bi-speedometer2 nav-icon"></i>Dashboard</a>
+        <a href="produtos.html"><i class="bi bi-box-seam nav-icon"></i>Produtos</a>
+        <a href="relatorios.html" class="active"><i class="bi bi-bar-chart nav-icon"></i>Relatórios</a>
+        <a href="#"><i class="bi bi-people nav-icon"></i>Funcionários</a>
+        <a href="#"><i class="bi bi-headset nav-icon"></i>Fornecedores</a>
+        <a href="#"><i class="bi bi-gear nav-icon"></i>Configurações</a>
+      </nav>
+  </aside>
+
+  <main class="main">
+
+      <header class="header">
+        <h3>Central de Relatórios</h3>
+        <div class="header-right">
+            <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Buscar relatório...">
+            </div>
+            <img src="https://i.pravatar.cc/40" class="user" alt="Usuario">
+        </div>
+      </header>
+
+      <section class="content">
+
+            <div class="page-header">
+                <h2>Visão Geral Financeira</h2>
+                <button class="btn-print" onclick="window.print()">
+                    <i class="bi bi-printer"></i> Imprimir
+                </button>
+            </div>
+
+            <div class="stats-grid">
+                
+                <div class="stat-card">
+                    <i class="bi bi-coin stat-icon"></i>
+                    <div>
+                        <h4 id="kpi-faturamento">R$ 0,00</h4>
+                        <p>Faturamento (Saídas)</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="bi bi-cart-check stat-icon"></i>
+                    <div>
+                        <h4 id="kpi-transacoes">0</h4>
+                        <p>Transações Realizadas</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="bi bi-box-seam stat-icon"></i>
+                    <div>
+                        <h4 id="kpi-itens">0</h4>
+                        <p>Produtos Movimentados</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="bi bi-graph-up-arrow stat-icon"></i>
+                    <div>
+                        <h4>+15%</h4>
+                        <p>Crescimento Mensal</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card filter-bar">
+                
+                <div class="filter-item">
+                    <label>Tipo de Movimentação</label>
+                    <div class="select-wrapper">
+                        <i class="bi bi-funnel"></i>
+                        <select id="tipoRelatorio">
+                            <option value="todos">Todas as movimentações</option>
+                            <option value="entrada">Apenas Entradas</option>
+                            <option value="saida">Apenas Saídas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label>Período Inicial</label>
+                    <input type="date" id="dataInicio">
+                </div>
+
+                <div class="filter-item">
+                    <label>Período Final</label>
+                    <input type="date" id="dataFim">
+                </div>
+
+                <div class="filter-actions">
+                    <button class="btn-filtrar" onclick="gerarRelatorio()">
+                        <i class="bi bi-search"></i> Filtrar Resultados
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="card table-card">
+                <div class="card-header-table">
+                    <h4>Detalhamento</h4>
+                    <span class="badge-count" id="contador-linhas">0 registros</span>
+                </div>
+
+                <table class="mov-table"> 
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Produto</th>
+                            <th>Qtd</th>
+                            <th>Valor Unit.</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-corpo">
+                        </tbody>
+                </table>
+                
+                <div id="msg-sem-dados" class="empty-state">
+                    <i class="bi bi-clipboard-x"></i>
+                    <p>Nenhum dado encontrado com os filtros atuais.</p>
+                </div>
+            </div>
+
+      </section>
+
+      <footer class="footer">
+        Gerencia+ &copy; 2025 - Sistema de Gestão
+      </footer>
+
+  </main>
+</div>
+
+<script>
+    /* ============================================================
+       DADOS FICTÍCIOS
+    ============================================================ */
+    const historicoMovimentacoes = [
+        { id: 1, data: '2025-11-18', tipo: 'entrada', produto: 'Arroz Branco 5kg', qtd: 50, valorUnit: 22.00, status: 'Concluído' },
+        { id: 2, data: '2025-11-18', tipo: 'saida', produto: 'Arroz Branco 5kg', qtd: 2, valorUnit: 24.90, status: 'Vendido' },
+        { id: 3, data: '2025-11-19', tipo: 'saida', produto: 'Óleo de Soja 900ml', qtd: 5, valorUnit: 6.79, status: 'Vendido' },
+        { id: 4, data: '2025-11-20', tipo: 'entrada', produto: 'Coca-Cola 2L', qtd: 100, valorUnit: 6.50, status: 'Estoque' },
+        { id: 5, data: '2025-11-21', tipo: 'saida', produto: 'Feijão Carioca', qtd: 10, valorUnit: 8.99, status: 'Vendido' },
+        { id: 6, data: '2025-11-22', tipo: 'saida', produto: 'Sabão em Pó', qtd: 1, valorUnit: 9.50, status: 'Vendido' },
+        { id: 7, data: '2025-11-23', tipo: 'entrada', produto: 'Detergente Ypê', qtd: 200, valorUnit: 1.99, status: 'Estoque' },
+    ];
+
+    /* ============================================================
+       FUNÇÃO PRINCIPAL
+    ============================================================ */
+    function gerarRelatorio() {
+        const tipo = document.getElementById('tipoRelatorio').value;
+        const dataInicio = document.getElementById('dataInicio').value;
+        const dataFim = document.getElementById('dataFim').value;
+        
+        const tbody = document.getElementById('tabela-corpo');
+        const msgSemDados = document.getElementById('msg-sem-dados');
+        const contador = document.getElementById('contador-linhas');
+
+        // Filtrar
+        let dadosFiltrados = historicoMovimentacoes.filter(item => {
+            let filtroTipo = (tipo === 'todos') ? true : item.tipo === tipo;
+            let filtroData = true;
+            if (dataInicio && dataFim) {
+                filtroData = item.data >= dataInicio && item.data <= dataFim;
+            }
+            return filtroTipo && filtroData;
+        });
+
+        // Atualizar contador
+        contador.textContent = dadosFiltrados.length + " registros encontrados";
+
+        // Limpar tabela
+        tbody.innerHTML = '';
+
+        // Verificar vazio
+        if (dadosFiltrados.length === 0) {
+            msgSemDados.style.display = 'block';
+            atualizarKPIs(0, 0, 0); 
+            return;
+        }
+        
+        msgSemDados.style.display = 'none';
+
+        // Preencher
+        let totalFaturamento = 0;
+        let totalItens = 0;
+
+        dadosFiltrados.forEach(mov => {
+            let totalLinha = mov.qtd * mov.valorUnit;
+            
+            if(mov.tipo === 'saida') {
+                totalFaturamento += totalLinha;
+            }
+            totalItens += mov.qtd;
+
+            let tr = document.createElement('tr');
+            let classeCor = mov.tipo === 'entrada' ? 'status-entrada' : 'status-saida';
+
+            tr.innerHTML = `
+                <td>${formatarData(mov.data)}</td>
+                <td><span class="status-badge ${classeCor}">${mov.tipo.toUpperCase()}</span></td>
+                <td><strong>${mov.produto}</strong></td>
+                <td>${mov.qtd}</td>
+                <td>R$ ${mov.valorUnit.toFixed(2)}</td>
+                <td>R$ ${totalLinha.toFixed(2)}</td>
+                <td>${mov.status}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        atualizarKPIs(totalFaturamento, totalItens, dadosFiltrados.length);
+    }
+
+    /* ============================================================
+       AUXILIARES
+    ============================================================ */
+    function atualizarKPIs(faturamento, itens, transacoes) {
+        document.getElementById('kpi-faturamento').textContent = 
+            faturamento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        document.getElementById('kpi-itens').textContent = itens;
+        document.getElementById('kpi-transacoes').textContent = transacoes;
+    }
+
+    function formatarData(dataISO) {
+        const [ano, mes, dia] = dataISO.split('-');
+        return `${dia}/${mes}/${ano}`;
+    }
+
+    window.onload = function() {
+        gerarRelatorio();
+    }
+</script>
+
+</body>
+</html>
