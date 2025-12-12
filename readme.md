@@ -49,7 +49,7 @@
 | **Trello** | Kanban|
 | **Git & GitHub** | Versionamento e deploy|
 
-## 💻 Responsáveis pelo Desenvolvimento
+## 💻 Responsáveis pelo Desenvolvimento 💻
 
 * Álvaro Rodrigues
 * Lucia Martins
